@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legends Alive: AR Tales of India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=Cinzel+Decorative:wght@700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div id="user-info"></div>
+    <h1>Legends Alive: AR Tales of India</h1>
+    <p>Where Myth Meets Augmented Reality</p>
+    <i class="floating-icon fas fa-om" style="top: 20px; left: 10%; font-size: 2rem;"></i>
+    <i class="floating-icon fas fa-lotus" style="bottom: 15px; right: 15%; font-size: 1.8rem;"></i>
+  </header>
+
+  <!-- Add this to your header in index.html -->
+<button class="hamburger" aria-label="Menu">
+  <i class="fas fa-bars"></i>
+</button>
+
+<!-- Update the nav to include a mobile wrapper -->
+<nav id="main-nav">
+  <div class="nav-wrapper">
+    <!-- <a href="#home"><i class="fas fa-home"></i> Home</a> -->
+   <a href="ARTales.html" id="ar-tales-link"><i class="fas fa-hands-helping"></i> AR Tales</a>
+    <a href="#roadmap"><i class="fas fa-map-marked-alt"></i> Roadmap</a>
+    <a href="#ramayana"><i class="fas fa-vr-cardboard"></i> Tales Reimagined</a>
+    <a id="login-logout-link" href="login.html"><i class="fas fa-user"></i> Login</a>
+  </div>
+</nav>
+
+  <section class="hero" id="home">
+    <h2>Discover India's Timeless Mythologies Through AR</h2>
+    <p>Step into the epic tales that shaped our culture</p>
+    <a href="signup.html" class="cta-button">Join Now <i class="fas fa-arrow-right"></i></a>
+    <i class="floating-icon fas fa-peace" style="top: 30%; left: 15%; font-size: 3rem;"></i>
+    <i class="floating-icon fas fa-yin-yang" style="bottom: 20%; right: 20%; font-size: 2.5rem;"></i>
+  </section>
+
+  <div class="decorative-border"></div>
+
+  <section class="features" id="features">
+    <h2 class="section-title">Core Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <i class="fas fa-user-astronaut"></i>
+        <h3>Immersive AR Character Interaction</h3>
+        <p>Engage in meaningful dialogues with legendary figures like Rama, Krishna, and Arjuna through advanced AR technology.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-mountain"></i>
+        <h3>Mythical World Exploration</h3>
+        <p>Walk through meticulously recreated ancient landscapes from Ayodhya to Lanka, with authentic architecture and ambiance.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-balance-scale"></i>
+        <h3>Ethical Quests System</h3>
+        <p>Face moral dilemmas and make choices that affect your Dharma Points, teaching timeless values through interactive storytelling.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="decorative-border"></div>
+
+  <section class="integrity" id="integrity">
+    <h2 class="section-title">AR Tales</h2>
+    <p class="section-description">AR Tales brings stories to life through immersive augmented reality experiences. Dive into interactive narratives where characters leap off the page and the world around you becomes part of the adventure.</p>
+    <div style="text-align: center; margin-top: 2em;">
+      <i class="fas fa-gem" style="font-size: 3rem; color: var(--gold);"></i>
+    </div>
+  </section>
+
+  <section class="journey" id="journey">
+    <h2 class="section-title">User Journey</h2>
+    <p class="section-description">Experience our seamless four-step immersion: Scan ancient symbols around you, Listen to the narrated prologue, Make choices that shape the story, and Earn rewards based on your wisdom.</p>
+  </section>
+
+  <section class="technology" id="technology">
+    <h2 class="section-title">Technology</h2>
+    <p class="section-description">Powered by Unity3D with AR Foundation for cross-platform AR, enhanced by our proprietary BhashaAI for authentic regional language support, and Firebase for real-time updates and cloud saves.</p>
+  </section>
+
+  <div class="decorative-border"></div>
+
+  <section class="roadmap" id="roadmap">
+    <h2 class="section-title">Sacred Timeline</h2>
+    <div style="display: flex; justify-content: center; margin-top: 2em;">
+      <ul style="text-align: left; max-width: 600px; font-size: 1.2rem; line-height: 2;">
+        <li><strong>2025:</strong> Complete Ramayana & Mahabharata sagas with 100+ interactive scenes</li>
+        <li><strong>2026:</strong> Panchatantra wisdom tales and regional folk stories collection</li>
+        <li><strong>2027:</strong> VR temple experiences and pilgrimages with historical accuracy</li>
+      </ul>
+    </div>
+    <i class="floating-icon fas fa-hourglass-half" style="top: 50%; right: 15%; font-size: 3rem;"></i>
+  </section>
+
+  <section class="ramayana" id="ramayana">
+    <h2 class="section-title">Tales Reimagined</h2>
+    <p class="section-description">Witness iconic moments from the epic Tales come alive through our augmented reality technology</p>
+    <section id="ramayana2">
+      <div>
+       <video src="Ramayana.mp4" controls autoplay loop muted playsinline loading="lazy"></video>
+        <p>RAMAYANA</p>
+      </div>
+      <div>
+        <video src="Mahabharata.mp4" controls autoplay loop muted playsinline loading="lazy"></video>
+        <p>MAHABHARATA</p>
+      </div>
+    </section>
+  </section>
+
+  <div class="decorative-border"></div>
+
+  <section class="contact" id="contact">
+    <h2 class="section-title">Join Our Sacred Journey</h2>
+    <p>Be among the first to experience this revolutionary way to connect with India's spiritual heritage</p>
+    <a href="signup.html" class="cta-button">Create Account <i class="fas fa-arrow-right"></i></a>
+    <p style="margin-top: 2em;">For inquiries: <a href="mailto:info@legendsalive.in">info@legendsalive.in</a></p>
+    <div style="margin-top: 2em;">
+      <a href="#" style="margin: 0 1em; font-size: 1.5rem; color: var(--indigo);"><i class="fab fa-facebook"></i></a>
+      <a href="#" style="margin: 0 1em; font-size: 1.5rem; color: var(--indigo);"><i class="fab fa-twitter"></i></a>
+      <a href="#" style="margin: 0 1em; font-size: 1.5rem; color: var(--indigo);"><i class="fab fa-instagram"></i></a>
+      <a href="#" style="margin: 0 1em; font-size: 1.5rem; color: var(--indigo);"><i class="fab fa-youtube"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Legends Alive. All Rights Reserved.</p>
+    <p>Crafted with <i class="fas fa-heart" style="color: var(--earth-red);"></i> in India</p>
+  </footer>
+  
+  <script src="auth.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

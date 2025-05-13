@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Tales | Legends Alive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=Cinzel+Decorative:wght@700&family=Noto+Serif:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="ARTales.css">
+</head>
+
+<body>
+    <header>
+        <div id="user-info"></div>
+        <h1>AR Tales</h1>
+        <p>Experience the epics in Augmented Reality</p>
+        <i class="floating-icon fas fa-om" style="top: 20px; left: 10%; font-size: 2rem;"></i>
+        <i class="floating-icon fas fa-lotus" style="bottom: 15px; right: 15%; font-size: 1.8rem;"></i>
+    </header>
+
+    <button class="hamburger" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <nav id="main-nav">
+        <div class="nav-wrapper">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="cultural-integrity.html" id="ar-tales-link"><i class="fas fa-hands-helping"></i> AR Tales</a>
+            <a href="#roadmap"><i class="fas fa-map-marked-alt"></i> Roadmap</a>
+            <a href="#ramayana"><i class="fas fa-vr-cardboard"></i> Ramayana AR</a>
+            <a id="login-logout-link" href="login.html"><i class="fas fa-user"></i> Login</a>
+        </div>
+    </nav>
+
+    <section class="ar-tales">
+        <h2 class="section-title">Choose Your Epic Journey</h2>
+
+        <div class="epic-option">
+            <button class="epic-toggle" onclick="toggleDropdown('ramayana-dropdown')">
+                <i class="fas fa-book-open"></i> Ramayana
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+            </button>
+            <div class="dropdown-content" id="ramayana-dropdown">
+                <a href="#" onclick="showLanguageOptions('ramayana-option1')">The Ring of Hope</a>
+                <a href="#" onclick="showLanguageOptions('ramayana-option2')">Coming Soon</a>
+                <a href="#" onclick="showLanguageOptions('ramayana-option3')">Coming Soon</a>
+            </div>
+        </div>
+
+        <div class="epic-option">
+            <button class="epic-toggle" onclick="toggleDropdown('mahabharata-dropdown')">
+                <i class="fas fa-book-dead"></i> Mahabharata
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+            </button>
+            <div class="dropdown-content" id="mahabharata-dropdown">
+                <a href="#" onclick="showLanguageOptions('mahabharata-option1')">Arjuna's Divine Awakening</a>
+                <a href="#" onclick="showLanguageOptions('mahabharata-option2')">Coming Soon</a>
+                <a href="#" onclick="showLanguageOptions('mahabharata-option3')">Coming Soon</a>
+            </div>
+        </div>
+
+        <div id="ar-container" class="ar-container">
+            <!-- AR experience will be loaded here -->
+        </div>
+    </section>
+
+    <!-- Language Selection Modal -->
+    <div id="language-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3>Select Language</h3>
+            <div class="language-options">
+                <button onclick="loadARExperience(selectedOption, 'english')">English</button>
+                <button onclick="loadARExperience(selectedOption, 'hindi')">हिंदी (Hindi)</button>
+                <button onclick="loadARExperience(selectedOption, 'marathi')">मराठी (Marathi)</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Legends Alive. All Rights Reserved.</p>
+        <p>Crafted with <i class="fas fa-heart" style="color: var(--earth-red);"></i> in India</p>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+    <script>
+        let selectedOption = '';
+
+        function toggleDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            const allDropdowns = document.querySelectorAll('.dropdown-content');
+
+            // Close all other dropdowns
+            allDropdowns.forEach(d => {
+                if (d.id !== dropdownId) {
+                    d.classList.remove('show');
+                    const icon = d.previousElementSibling.querySelector('.dropdown-icon');
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+
+            // Toggle current dropdown
+            dropdown.classList.toggle('show');
+            const icon = dropdown.previousElementSibling.querySelector('.dropdown-icon');
+            if (dropdown.classList.contains('show')) {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+
+        function showLanguageOptions(option) {
+            selectedOption = option;
+            document.getElementById('language-modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('language-modal').style.display = 'none';
+        }
+
+        function loadARExperience(option, language) {
+            const container = document.getElementById('ar-container');
+            closeModal(); // Close the language selection modal
+
+            // Clear previous content
+            container.innerHTML = '';
+
+            if (option === 'ramayana-option1') {
+                let iframeSrc = '';
+                let title = '';
+                
+                // Set the appropriate iframe source based on language
+                switch(language) {
+                    case 'english':
+                        iframeSrc = 'https://mywebar.com/p/Project_0_rpixyizo9f07636948';
+                        title = 'The Ring of Hope (English)';
+                        break;
+                    case 'hindi':
+                        iframeSrc = 'URL_FOR_HINDI_RAMAYANA';
+                        title = 'आशा की अंगूठी (Hindi)';
+                        break;
+                    case 'marathi':
+                        iframeSrc = 'URL_FOR_MARATHI_RAMAYANA';
+                        title = 'आशेची अंगठी (Marathi)';
+                        break;
+                    default:
+                        iframeSrc = 'https://mywebar.com/p/Project_0_rpixyizo9f07636948';
+                        title = 'The Ring of Hope';
+                }
+                
+                container.innerHTML = `
+                    <button class="ar-close-btn" onclick="closeARExperience()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <h3 class="ar-title">${title}</h3>
+                    <div class="ar-frame-wrapper">
+                        <iframe 
+                            src="${iframeSrc}" 
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0" 
+                            scrolling="yes"
+                            seamless="seamless"
+                            allow="camera;gyroscope;accelerometer;magnetometer;xr-spatial-tracking;microphone"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="ar-instructions">Point your camera at a flat surface to view the AR experience</p>
+                `;
+                container.style.display = 'block';
+            } 
+            else if (option === 'mahabharata-option1') {
+                let iframeSrc = '';
+                let title = '';
+                
+                // Set the appropriate iframe source based on language
+                switch(language) {
+                    case 'english':
+                        iframeSrc = 'https://mywebar.com/p/Project_1_bq8au1tmk9';
+                        title = "Arjuna's Divine Awakening (English)";
+                        break;
+                    case 'hindi':
+                        iframeSrc = 'URL_FOR_HINDI_MAHABHARATA';
+                        title = 'अर्जुन की दिव्य प्रबोधना (Hindi)';
+                        break;
+                    case 'marathi':
+                        iframeSrc = 'URL_FOR_MARATHI_MAHABHARATA';
+                        title = 'अर्जुनाचे दिव्य प्रबोधन (Marathi)';
+                        break;
+                    default:
+                        iframeSrc = 'https://mywebar.com/p/Project_1_bq8au1tmk9';
+                        title = "Arjuna's Divine Awakening";
+                }
+                
+                container.innerHTML = `
+                    <button class="ar-close-btn" onclick="closeARExperience()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <h3 class="ar-title">${title}</h3>
+                    <div class="ar-frame-wrapper">
+                        <iframe src="${iframeSrc}" 
+                        frameborder="0" 
+                        scrolling="yes" 
+                        seamless="seamless" 
+                        style="display:block; 
+                        width:100%; 
+                        height:100%;" 
+                        allow="camera;
+                        gyroscope;
+                        accelerometer;magnetometer;
+                        xr-spatial-tracking;
+                        microphone;"
+                        allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="ar-instructions">Point your camera at a flat surface to view the AR experience</p>
+                `;
+                container.style.display = 'block';
+            }
+            else {
+                container.innerHTML = `
+                    <div class="coming-soon">
+                        <i class="fas fa-hourglass-half"></i>
+                        <h3>More AR Experiences Coming Soon!</h3>
+                        <p>We're working hard to bring you more immersive experiences</p>
+                    </div>
+                `;
+                container.style.display = 'block';
+            }
+
+            // Scroll to the AR container
+            container.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeARExperience() {
+            const container = document.getElementById('ar-container');
+            container.style.display = 'none';
+            selectedOption = '';
+
+            // Stop any active AR sessions
+            const iframe = container.querySelector('iframe');
+            if (iframe) {
+                iframe.src = '';
+            }
+
+            // Clear the container
+            container.innerHTML = '';
+        }
+
+        // Close dropdowns if clicked outside
+        window.onclick = function (event) {
+            if (!event.target.matches('.epic-toggle')) {
+                const dropdowns = document.querySelectorAll('.dropdown-content');
+                dropdowns.forEach(dropdown => {
+                    if (dropdown.classList.contains('show')) {
+                        dropdown.classList.remove('show');
+                        const icon = dropdown.previousElementSibling.querySelector('.dropdown-icon');
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                });
+            }
+            
+            // Close modal if clicked outside
+            if (event.target == document.getElementById('language-modal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

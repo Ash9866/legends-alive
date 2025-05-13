@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dashboard | Legends Alive: AR Tales of India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=Cinzel+Decorative:wght@700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <header>
+    <div id="user-info"></div>
+    <h1>Legends Alive: AR Tales of India</h1>
+    <p>Welcome back to your mythic journey</p>
+    <i class="floating-icon fas fa-om" style="top: 20px; left: 10%; font-size: 2rem;"></i>
+    <i class="floating-icon fas fa-lotus" style="bottom: 15px; right: 15%; font-size: 1.8rem;"></i>
+  </header>
+
+  <button class="hamburger" aria-label="Menu">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <nav id="main-nav">
+    <div class="nav-wrapper">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="ARTales.html" id="ar-tales-link"><i class="fas fa-hands-helping"></i> AR Tales</a>
+      <a href="#roadmap"><i class="fas fa-map-marked-alt"></i> Roadmap</a>
+      <a href="#ramayana"><i class="fas fa-vr-cardboard"></i> Tales Reimagined</a>
+      <a id="login-logout-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <h2>Continue Your Journey Through India's Timeless Mythologies</h2>
+    <p>Your adventure awaits, <span id="user-greeting"></span></p>
+    <div class="dashboard-stats">
+      <div class="stat-card">
+        <i class="fas fa-medal"></i>
+        <h3>Dharma Points</h3>
+        <p id="dharma-points">0</p>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-book-open"></i>
+        <h3>Stories Explored</h3>
+        <p id="stories-explored">0</p>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-trophy"></i>
+        <h3>Achievements</h3>
+        <p id="achievements">0</p>
+      </div>
+    </div>
+    <i class="floating-icon fas fa-peace" style="top: 30%; left: 15%; font-size: 3rem;"></i>
+    <i class="floating-icon fas fa-yin-yang" style="bottom: 20%; right: 20%; font-size: 2.5rem;"></i>
+  </section>
+
+  <div class="decorative-border"></div>
+
+  <section class="features" id="features">
+    <h2 class="section-title">Continue Your Journey</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <i class="fas fa-user-astronaut"></i>
+        <h3>Your Recent Adventures</h3>
+        <p>Pick up where you left off in your last AR experience.</p>
+        <button class="dashboard-btn" onclick="continueLastAdventure()">Continue <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-mountain"></i>
+        <h3>Recommended For You</h3>
+        <p>Based on your interests, we suggest these stories next.</p>
+        <button class="dashboard-btn" onclick="showRecommendations()">View Recommendations <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-balance-scale"></i>
+        <h3>Your Dharma Path</h3>
+        <p>See how your choices align with ancient wisdom.</p>
+        <button class="dashboard-btn" onclick="viewDharmaPath()">View Path <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="decorative-border"></div>
+
+  <section class="integrity" id="integrity">
+    <h2 class="section-title">AR Tales</h2>
+    <p class="section-description">Continue your immersive augmented reality experiences where you left off.</p>
+    <div style="text-align: center; margin-top: 2em;">
+      <i class="fas fa-gem" style="font-size: 3rem; color: var(--gold);"></i>
+    </div>
+  </section>
+
+  <section class="journey" id="journey">
+    <h2 class="section-title">Your Journey So Far</h2>
+    <p class="section-description">Here's what you've accomplished in your exploration of India's epic tales.</p>
+    <div id="journey-timeline" class="journey-timeline">
+      <!-- Timeline will be populated by JavaScript -->
+    </div>
+  </section>
+
+  <!-- <section class="technology" id="technology">
+    <h2 class="section-title">Your Preferences</h2>
+    <p class="section-description">Update your language preferences and notification settings.</p>
+    <button class="dashboard-btn" onclick="openPreferences()">Update Preferences <i class="fas fa-cog"></i></button>
+  </section> -->
+
+  <div class="decorative-border"></div>
+
+  <section class="roadmap" id="roadmap">
+    <h2 class="section-title">Your Sacred Timeline</h2>
+    <div style="display: flex; justify-content: center; margin-top: 2em;">
+      <ul id="user-roadmap" style="text-align: left; max-width: 600px; font-size: 1.2rem; line-height: 2;">
+        <!-- Will be populated by JavaScript -->
+      </ul>
+    </div>
+    <i class="floating-icon fas fa-hourglass-half" style="top: 50%; right: 15%; font-size: 3rem;"></i>
+  </section>
+
+  <section class="ramayana" id="ramayana">
+    <h2 class="section-title">Your Tales Reimagined</h2>
+    <p class="section-description">Revisit your favorite moments from the epic Tales.</p>
+    <section id="ramayana2">
+      <div>
+        <video src="Ramayana.mp4" controls autoplay loop muted playsinline loading="lazy"></video>
+        <p>RAMAYANA</p>
+        <button class="dashboard-btn" onclick="continueStory('ramayana')">Continue Story <i class="fas fa-play"></i></button>
+      </div>
+      <div>
+        <video src="Mahabharata.mp4" controls autoplay loop muted playsinline loading="lazy"></video>
+        <p>MAHABHARATA</p>
+        <button class="dashboard-btn" onclick="continueStory('mahabharata')">Continue Story <i class="fas fa-play"></i></button>
+      </div>
+    </section>
+  </section>
+
+  <div class="decorative-border"></div>
+
+  <section class="contact" id="contact">
+    <h2 class="section-title">Need Help?</h2>
+    <p>Our team is here to assist you on your sacred journey</p>
+    <button class="dashboard-btn" onclick="contactSupport()">Contact Support <i class="fas fa-headset"></i></button>
+    <p style="margin-top: 2em;">For inquiries: <a href="mailto:info@legendsalive.in">info@legendsalive.in</a></p>
+    <div style="margin-top: 2em;">
+      <a href="#" style="margin: 0 1em; font-size: 1.5rem; color: var(--indigo);"><i class="fab fa-facebook"></i></a>
+      <a href="#" style="margin: 0 1em; font-size: 1.5rem; color: var(--indigo);"><i class="fab fa-twitter"></i></a>
+      <a href="#" style="margin: 0 1em; font-size: 1.5rem; color: var(--indigo);"><i class="fab fa-instagram"></i></a>
+      <a href="#" style="margin: 0 1em; font-size: 1.5rem; color: var(--indigo);"><i class="fab fa-youtube"></i></a>
+    </div>
+  </section>
+
+  <!-- Camera Permission Modal -->
+<div id="cameraModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2>Camera Access Required</h2>
+    <p>Legends Alive: AR Tales requires camera access to provide the full augmented reality experience.</p>
+    <div id="compatibilityMessage"></div>
+    <button id="requestCameraBtn" class="dashboard-btn">Allow Camera Access</button>
+    <div id="cameraError" class="error-message"></div>
+  </div>
+</div>
+
+<!-- Camera Test Section (hidden) -->
+<div id="cameraTest" style="display: none;">
+  <video id="cameraFeed" autoplay playsinline></video>
+</div>
+
+  <footer>
+    <p>&copy; 2025 Legends Alive. All Rights Reserved.</p>
+    <p>Crafted with <i class="fas fa-heart" style="color: var(--earth-red);"></i> in India</p>
+  </footer>
+  
+  <script src="auth.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
